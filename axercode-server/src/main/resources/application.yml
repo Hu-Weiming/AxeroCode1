@@ -1,0 +1,33 @@
+spring:
+  main:
+    banner-mode: "off"
+
+server:
+  port: 8080
+
+axercode:
+  agent:
+    max-tool-rounds: 3
+    max-recent-messages: 12
+    max-reflection-rounds: 1
+  provider:
+    default-provider: ollama
+    default-model: qwen2.5:7b
+    ollama:
+      enabled: true
+      base-url: http://127.0.0.1:11434
+      default-model: qwen2.5:7b
+    anthropic:
+      enabled: true
+      base-url: https://api.anthropic.com
+      api-key: ${ANTHROPIC_API_KEY:}
+      version: 2023-06-01
+      max-tokens: 2048
+      default-model: claude-3-5-sonnet-latest
+    openai:
+      enabled: true
+      base-url: https://api.openai.com/v1
+      api-key: ${OPENAI_API_KEY:}
+      default-model: gpt-4o-mini
+  storage:
+    database-file: ${user.home}/.axercode/data/axercode.db

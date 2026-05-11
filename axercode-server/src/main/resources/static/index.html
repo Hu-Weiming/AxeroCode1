@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AxerCode</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<div class="app-shell" id="appShell">
+    <aside class="sidebar" id="sidebar" aria-label="Conversation history">
+        <div class="sidebar-header">
+            <div class="brand-lockup">
+                <p class="brand-name">AxerCode</p>
+                <p class="brand-subtitle">Local coding companion</p>
+            </div>
+            <button type="button" class="sidebar-close" id="sidebarCloseButton">Close</button>
+        </div>
+
+        <button type="button" class="new-chat-button" id="newChatButton">New chat</button>
+
+        <section class="sidebar-section">
+            <p class="sidebar-label">Recent chats</p>
+            <div class="session-list" id="sessionList" aria-live="polite"></div>
+        </section>
+
+        <footer class="sidebar-footer">
+            <p class="session-note" id="sessionNote">Start a new conversation.</p>
+        </footer>
+    </aside>
+
+    <button type="button" class="sidebar-scrim" id="sidebarScrim" hidden aria-label="Close sidebar"></button>
+
+    <main class="chat-panel" id="chatPanel">
+        <header class="chat-topbar">
+            <div class="topbar-utility topbar-utility-left">
+                <button type="button" class="sidebar-toggle-button" id="sidebarToggleButton">Hide history</button>
+            </div>
+            <div class="topbar-copy" hidden>
+                <p class="topbar-eyebrow">AxerCode</p>
+                <h1 class="topbar-title" id="conversationTitle">New chat</h1>
+                <p class="shell-state-summary" id="shellStateSummary">Plan mode: off</p>
+            </div>
+            <div class="runtime-toolbar topbar-utility topbar-utility-right">
+                <label class="runtime-field" for="providerSelect">
+                    <span class="runtime-label">Provider</span>
+                    <select id="providerSelect" name="provider"></select>
+                </label>
+                <label class="runtime-field runtime-field-model" for="modelInput">
+                    <span class="runtime-label">Model</span>
+                    <input
+                            id="modelInput"
+                            name="model"
+                            type="text"
+                            placeholder="Model name"
+                            autocomplete="off"
+                    >
+                </label>
+            </div>
+        </header>
+
+        <div class="chat-viewport" id="chatViewport">
+            <section class="chat-scroll">
+                <section class="welcome-panel" id="welcomePanel">
+                    <p class="welcome-eyebrow">AxerCode</p>
+                    <h2>Clean, focused help for your next coding task.</h2>
+                    <p class="welcome-copy">
+                        Ask for analysis, refactors, debugging, or implementation help and keep the workspace centered on the conversation.
+                    </p>
+                </section>
+
+                <section class="transcript" id="transcript" aria-live="polite"></section>
+            </section>
+
+            <form class="composer" id="composer">
+                <label class="composer-label" for="prompt">Message</label>
+                <div class="composer-surface">
+                    <textarea
+                            id="prompt"
+                            name="prompt"
+                            rows="1"
+                            placeholder="Message AxerCode"
+                            required
+                    ></textarea>
+                    <div class="composer-footer">
+                        <div class="composer-utility">
+                            <button type="button" class="composer-plan-mode" id="planModeButton" aria-pressed="false">Plan mode: off</button>
+                            <p class="status" id="status">Ready.</p>
+                        </div>
+                        <button type="submit" class="composer-submit" id="sendButton">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+<script src="/assets/sse.js" defer></script>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>

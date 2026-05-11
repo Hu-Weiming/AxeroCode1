@@ -1,0 +1,17 @@
+spring:
+  main:
+    banner-mode: "off"
+
+axercode:
+  agent:
+    max-tool-rounds: 3
+    max-recent-messages: 12
+    max-reflection-rounds: 1
+  provider:
+    default-model: qwen2.5:7b
+    ollama:
+      base-url: http://127.0.0.1:11434
+  storage:
+    database-file: ${user.home}/.axercode/data/axercode.db
+  shell:
+    history-file: ${user.home}/.axercode/cli.history

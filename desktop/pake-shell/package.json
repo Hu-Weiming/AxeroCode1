@@ -1,0 +1,13 @@
+{
+  "name": "@axercode/pake-shell",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pake shell scaffold for the AxerCode desktop wrapper.",
+  "scripts": {
+    "build:shell": "pake http://127.0.0.1:19090/ --name AxerCode --width 1280 --height 900 --hide-title-bar",
+    "doctor": "pake --version"
+  },
+  "devDependencies": {
+    "pake-cli": "3.11.3"
+  }
+}
